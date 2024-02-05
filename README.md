@@ -1,18 +1,25 @@
+This is an attempt to learn about RAG and using this sample app customize the application code to use another datasource and see how this works.
+
+The will also be to familiarize with concepts in the domain of geNAI that this projects touches upon.
+
 ---
+
 name: ChatGPT + Enterprise data
 description: Chat with your data using OpenAI and AI Search.
 languages:
+
 - python
 - typescript
 - bicep
 - azdeveloper
-products:
+  products:
 - azure-openai
 - azure-cognitive-search
 - azure-app-service
 - azure
-page_type: sample
-urlFragment: azure-search-openai-demo
+  page_type: sample
+  urlFragment: azure-search-openai-demo
+
 ---
 
 # ChatGPT + Enterprise data with Azure OpenAI and AI Search
@@ -20,7 +27,7 @@ urlFragment: azure-search-openai-demo
 > [!IMPORTANT]
 > As of November 15, 2023, Azure Cognitive Search has been renamed to Azure AI Search.
 
-### Announcing [**JavaScript**](https://aka.ms/azai/js/code), [**.NET**](https://aka.ms/azai/net/code), and [**Java**](https://aka.ms/azai/java/code) samples based on this one in [**Python**](https://aka.ms/azai/py/code). Learn more at  https://aka.ms/azai.
+### Announcing [**JavaScript**](https://aka.ms/azai/js/code), [**.NET**](https://aka.ms/azai/net/code), and [**Java**](https://aka.ms/azai/java/code) samples based on this one in [**Python**](https://aka.ms/azai/py/code). Learn more at https://aka.ms/azai.
 
 ## Table of Contents
 
@@ -61,11 +68,11 @@ The repo includes sample data so it's ready to try end to end. In this sample ap
 
 ## Features
 
-* Chat and Q&A interfaces
-* Explores various options to help users evaluate the trustworthiness of responses with citations, tracking of source content, etc.
-* Shows possible approaches for data preparation, prompt construction, and orchestration of interaction between model (ChatGPT) and retriever (AI Search)
-* Settings directly in the UX to tweak the behavior and experiment with options
-* Performance tracing and monitoring with Application Insights
+- Chat and Q&A interfaces
+- Explores various options to help users evaluate the trustworthiness of responses with citations, tracking of source content, etc.
+- Shows possible approaches for data preparation, prompt construction, and orchestration of interaction between model (ChatGPT) and retriever (AI Search)
+- Settings directly in the UX to tweak the behavior and experiment with options
+- Performance tracing and monitoring with Application Insights
 
 ![Chat screen](docs/chatscreen.png)
 
@@ -75,11 +82,11 @@ The repo includes sample data so it's ready to try end to end. In this sample ap
 
 **IMPORTANT:** In order to deploy and run this example, you'll need:
 
-* **Azure account**. If you're new to Azure, [get an Azure account for free](https://azure.microsoft.com/free/cognitive-search/) and you'll get some free Azure credits to get started. See [guide to deploying with the free trial](docs/deploy_lowcost.md).
-* **Azure subscription with access enabled for the Azure OpenAI service**. You can request access with [this form](https://aka.ms/oaiapply). If your access request to Azure OpenAI service doesn't match the [acceptance criteria](https://learn.microsoft.com/legal/cognitive-services/openai/limited-access?context=%2Fazure%2Fcognitive-services%2Fopenai%2Fcontext%2Fcontext), you can use [OpenAI public API](https://platform.openai.com/docs/api-reference/introduction) instead. Learn [how to switch to an OpenAI instance](#openaicom-openai).
-* **Azure account permissions**:
-  * Your Azure account must have `Microsoft.Authorization/roleAssignments/write` permissions, such as [Role Based Access Control Administrator](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles#role-based-access-control-administrator-preview), [User Access Administrator](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator), or [Owner](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles#owner). If you don't have subscription-level permissions, you must be granted [RBAC](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles#role-based-access-control-administrator-preview) for an existing resource group and [deploy to that existing group](#existing-resource-group).
-  * Your Azure account also needs `Microsoft.Resources/deployments/write` permissions on the subscription level.
+- **Azure account**. If you're new to Azure, [get an Azure account for free](https://azure.microsoft.com/free/cognitive-search/) and you'll get some free Azure credits to get started. See [guide to deploying with the free trial](docs/deploy_lowcost.md).
+- **Azure subscription with access enabled for the Azure OpenAI service**. You can request access with [this form](https://aka.ms/oaiapply). If your access request to Azure OpenAI service doesn't match the [acceptance criteria](https://learn.microsoft.com/legal/cognitive-services/openai/limited-access?context=%2Fazure%2Fcognitive-services%2Fopenai%2Fcontext%2Fcontext), you can use [OpenAI public API](https://platform.openai.com/docs/api-reference/introduction) instead. Learn [how to switch to an OpenAI instance](#openaicom-openai).
+- **Azure account permissions**:
+  - Your Azure account must have `Microsoft.Authorization/roleAssignments/write` permissions, such as [Role Based Access Control Administrator](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles#role-based-access-control-administrator-preview), [User Access Administrator](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator), or [Owner](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles#owner). If you don't have subscription-level permissions, you must be granted [RBAC](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles#role-based-access-control-administrator-preview) for an existing resource group and [deploy to that existing group](#existing-resource-group).
+  - Your Azure account also needs `Microsoft.Resources/deployments/write` permissions on the subscription level.
 
 ## Azure deployment
 
@@ -119,7 +126,7 @@ A related option is VS Code Dev Containers, which will open the project in your 
 
 1. Start Docker Desktop (install it if not already installed)
 1. Open the project:
-    [![Open in Dev Containers](https://img.shields.io/static/v1?style=for-the-badge&label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/azure-samples/azure-search-openai-demo)
+   [![Open in Dev Containers](https://img.shields.io/static/v1?style=for-the-badge&label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/azure-samples/azure-search-openai-demo)
 1. In the VS Code window that opens, once the project files show up (this may take several minutes), open a terminal window
 1. Run `azd auth login`
 1. Now you can follow the instructions in [Deploying from scratch](#deploying-from-scratch) below
@@ -128,31 +135,31 @@ A related option is VS Code Dev Containers, which will open the project in your 
 
 First install the required tools:
 
-* [Azure Developer CLI](https://aka.ms/azure-dev/install)
-* [Python 3.9, 3.10, or 3.11](https://www.python.org/downloads/)
-  * **Important**: Python and the pip package manager must be in the path in Windows for the setup scripts to work.
-  * **Important**: Ensure you can run `python --version` from console. On Ubuntu, you might need to run `sudo apt install python-is-python3` to link `python` to `python3`.
-* [Node.js 14+](https://nodejs.org/en/download/)
-* [Git](https://git-scm.com/downloads)
-* [Powershell 7+ (pwsh)](https://github.com/powershell/powershell) - For Windows users only.
-  * **Important**: Ensure you can run `pwsh.exe` from a PowerShell terminal. If this fails, you likely need to upgrade PowerShell.
+- [Azure Developer CLI](https://aka.ms/azure-dev/install)
+- [Python 3.9, 3.10, or 3.11](https://www.python.org/downloads/)
+  - **Important**: Python and the pip package manager must be in the path in Windows for the setup scripts to work.
+  - **Important**: Ensure you can run `python --version` from console. On Ubuntu, you might need to run `sudo apt install python-is-python3` to link `python` to `python3`.
+- [Node.js 14+](https://nodejs.org/en/download/)
+- [Git](https://git-scm.com/downloads)
+- [Powershell 7+ (pwsh)](https://github.com/powershell/powershell) - For Windows users only.
+  - **Important**: Ensure you can run `pwsh.exe` from a PowerShell terminal. If this fails, you likely need to upgrade PowerShell.
 
 Then bring down the project code:
 
 1. Create a new folder and switch to it in the terminal
 1. Run `azd auth login`
 1. Run `azd init -t azure-search-openai-demo`
-    * note that this command will initialize a git repository and you do not need to clone this repository
+   - note that this command will initialize a git repository and you do not need to clone this repository
 
 ### Deploying from scratch
 
 Execute the following command, if you don't have any pre-existing Azure services and want to start from a fresh deployment.
 
 1. Run `azd up` - This will provision Azure resources and deploy this sample to those resources, including building the search index based on the files found in the `./data` folder.
-    * **Important**: Beware that the resources created by this command will incur immediate costs, primarily from the AI Search resource. These resources may accrue costs even if you interrupt the command before it is fully executed. You can run `azd down` or delete the resources manually to avoid unnecessary spending.
-    * You will be prompted to select two locations, one for the majority of resources and one for the OpenAI resource, which is currently a short list. That location list is based on the [OpenAI model availability table](https://learn.microsoft.com/azure/cognitive-services/openai/concepts/models#model-summary-table-and-region-availability) and may become outdated as availability changes.
-1. After the application has been successfully deployed you will see a URL printed to the console.  Click that URL to interact with the application in your browser.
-It will look like the following:
+   - **Important**: Beware that the resources created by this command will incur immediate costs, primarily from the AI Search resource. These resources may accrue costs even if you interrupt the command before it is fully executed. You can run `azd down` or delete the resources manually to avoid unnecessary spending.
+   - You will be prompted to select two locations, one for the majority of resources and one for the OpenAI resource, which is currently a short list. That location list is based on the [OpenAI model availability table](https://learn.microsoft.com/azure/cognitive-services/openai/concepts/models#model-summary-table-and-region-availability) and may become outdated as availability changes.
+1. After the application has been successfully deployed you will see a URL printed to the console. Click that URL to interact with the application in your browser.
+   It will look like the following:
 
 !['Output from running azd up'](assets/endpoint.png)
 
@@ -187,17 +194,16 @@ When you run `azd up` after and are prompted to select a value for `openAiResour
 
 You can retrieve your OpenAI key by checking [your user page](https://platform.openai.com/account/api-keys) and your organization by navigating to [your organization page](https://platform.openai.com/account/org-settings).
 Learn more about creating an OpenAI free trial at [this link](https://openai.com/pricing).
-Do *not* check your key into source control.
+Do _not_ check your key into source control.
 
 When you run `azd up` after and are prompted to select a value for `openAiResourceGroupLocation`, you can select any location as it will not be used.
-
 
 #### Existing Azure AI Search resource
 
 1. Run `azd env set AZURE_SEARCH_SERVICE {Name of existing Azure AI Search service}`
 1. Run `azd env set AZURE_SEARCH_SERVICE_RESOURCE_GROUP {Name of existing resource group with ACS service}`
 1. If that resource group is in a different location than the one you'll pick for the `azd up` step,
-  then run `azd env set AZURE_SEARCH_SERVICE_LOCATION {Location of existing service}`
+   then run `azd env set AZURE_SEARCH_SERVICE_LOCATION {Location of existing service}`
 1. If the search service's SKU is not standard, then run `azd env set AZURE_SEARCH_SERVICE_SKU {Name of SKU}`. If you specify the free tier, then your app will no longer be able to use semantic ranker, and it will use keys instead of managed identity for accessing the search service. Be advised that [search SKUs cannot be changed](https://learn.microsoft.com/azure/search/search-sku-tier#tier-upgrade-or-downgrade). ([See other possible SKU values](https://learn.microsoft.com/azure/templates/microsoft.search/searchservices?pivots=deployment-language-bicep#sku))
 1. If you have an existing index that is set up with all the expected fields, then run `azd env set AZURE_SEARCH_INDEX {Name of existing index}`. Otherwise, the `azd up` command will create a new index.
 
@@ -216,17 +222,15 @@ You can also use existing Azure AI Document Intelligence and Storage Accounts. S
 Now you can run `azd up`, following the steps in [Deploying from scratch](#deploying-from-scratch) above.
 That will both provision resources and deploy the code.
 
-
 ### Deploying again
 
 If you've only changed the backend/frontend code in the `app` folder, then you don't need to re-provision the Azure resources. You can just run:
 
-```azd deploy```
+`azd deploy`
 
 If you've changed the infrastructure files (`infra` folder or `azure.yaml`), then you'll need to re-provision the Azure resources. You can do that by running:
 
-```azd up```
-
+`azd up`
 
 ## Sharing environments
 
@@ -236,9 +240,9 @@ either you or they can follow these steps:
 1. Install the [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli)
 1. Run `azd init -t azure-search-openai-demo` or clone this repository.
 1. Run `azd env refresh -e {environment name}`
-   They will need the azd environment name, subscription ID, and location to run this command. You can find those values in your `.azure/{env name}/.env` file.  This will populate their azd environment's `.env` file with all the settings needed to run the app locally.
+   They will need the azd environment name, subscription ID, and location to run this command. You can find those values in your `.azure/{env name}/.env` file. This will populate their azd environment's `.env` file with all the settings needed to run the app locally.
 1. Set the environment variable `AZURE_PRINCIPAL_ID` either in that `.env` file or in the active shell to their Azure ID, which they can get with `az ad signed-in-user show`.
-1. Run `./scripts/roles.ps1` or `.scripts/roles.sh` to assign all of the necessary roles to the user.  If they do not have the necessary permission to create roles in the subscription, then you may need to run this script for them. Once the script runs, they should be able to run the app locally.
+1. Run `./scripts/roles.ps1` or `.scripts/roles.sh` to assign all of the necessary roles to the user. If they do not have the necessary permission to create roles in the subscription, then you may need to run this script for them. Once the script runs, they should be able to run the app locally.
 
 ## Enabling optional features
 
@@ -248,9 +252,9 @@ This section covers the integration of GPT-4 Vision with Azure AI Search. Learn 
 
 ### Enabling authentication
 
-By default, the deployed Azure web app will have no authentication or access restrictions enabled, meaning anyone with routable network access to the web app can chat with your indexed data.  You can require authentication to your Azure Active Directory by following the [Add app authentication](https://learn.microsoft.com/azure/app-service/scenario-secure-app-authentication-app-service) tutorial and set it up against the deployed web app.
+By default, the deployed Azure web app will have no authentication or access restrictions enabled, meaning anyone with routable network access to the web app can chat with your indexed data. You can require authentication to your Azure Active Directory by following the [Add app authentication](https://learn.microsoft.com/azure/app-service/scenario-secure-app-authentication-app-service) tutorial and set it up against the deployed web app.
 
-To then limit access to a specific set of users or groups, you can follow the steps from [Restrict your Azure AD app to a set of users](https://learn.microsoft.com/azure/active-directory/develop/howto-restrict-your-app-to-a-set-of-users) by changing "Assignment Required?" option under the Enterprise Application, and then assigning users/groups access.  Users not granted explicit access will receive the error message -AADSTS50105: Your administrator has configured the application <app_name> to block users unless they are specifically granted ('assigned') access to the application.-
+To then limit access to a specific set of users or groups, you can follow the steps from [Restrict your Azure AD app to a set of users](https://learn.microsoft.com/azure/active-directory/develop/howto-restrict-your-app-to-a-set-of-users) by changing "Assignment Required?" option under the Enterprise Application, and then assigning users/groups access. Users not granted explicit access will receive the error message -AADSTS50105: Your administrator has configured the application <app_name> to block users unless they are specifically granted ('assigned') access to the application.-
 
 ### Enabling login and document level access control
 
@@ -258,7 +262,7 @@ By default, the deployed Azure web app allows users to chat with all your indexe
 
 ### Enabling CORS for an alternate frontend
 
-By default, the deployed Azure web app will only allow requests from the same origin.  To enable CORS for a frontend hosted on a different origin, run:
+By default, the deployed Azure web app will only allow requests from the same origin. To enable CORS for a frontend hosted on a different origin, run:
 
 1. Run `azd env set ALLOWED_ORIGIN https://<your-domain.com>`
 2. Run `azd up`
@@ -281,14 +285,14 @@ See more tips in [the local development guide](docs/localdev.md).
 
 ## Using the app
 
-* In Azure: navigate to the Azure WebApp deployed by azd. The URL is printed out when azd completes (as "Endpoint"), or you can find it in the Azure portal.
-* Running locally: navigate to 127.0.0.1:50505
+- In Azure: navigate to the Azure WebApp deployed by azd. The URL is printed out when azd completes (as "Endpoint"), or you can find it in the Azure portal.
+- Running locally: navigate to 127.0.0.1:50505
 
 Once in the web app:
 
-* Try different topics in chat or Q&A context. For chat, try follow up questions, clarifications, ask to simplify or elaborate on answer, etc.
-* Explore citations and sources
-* Click on "settings" to try different options, tweak prompts, etc.
+- Try different topics in chat or Q&A context. For chat, try follow up questions, clarifications, ask to simplify or elaborate on answer, etc.
+- Explore citations and sources
+- Click on "settings" to try different options, tweak prompts, etc.
 
 ## Monitoring with Application Insights
 
@@ -319,12 +323,12 @@ to production. Read through our [productionizing guide](docs/productionizing.md)
 
 ## Resources
 
-* [📖 Revolutionize your Enterprise Data with ChatGPT: Next-gen Apps w/ Azure OpenAI and AI Search](https://aka.ms/entgptsearchblog)
-* [📖 Azure AI Search](https://learn.microsoft.com/azure/search/search-what-is-azure-search)
-* [📖 Azure OpenAI Service](https://learn.microsoft.com/azure/cognitive-services/openai/overview)
-* [📖 Comparing Azure OpenAI and OpenAI](https://learn.microsoft.com/azure/cognitive-services/openai/overview#comparing-azure-openai-and-openai/)
-* [📖 Access Control in Generative AI applications with Azure Cognitive Search](https://techcommunity.microsoft.com/t5/ai-azure-ai-services-blog/access-control-in-generative-ai-applications-with-azure/ba-p/3956408)
-* [📺 Quickly build and deploy OpenAI apps on Azure, infused with your own data](https://www.youtube.com/watch?v=j8i-OM5kwiY)
+- [📖 Revolutionize your Enterprise Data with ChatGPT: Next-gen Apps w/ Azure OpenAI and AI Search](https://aka.ms/entgptsearchblog)
+- [📖 Azure AI Search](https://learn.microsoft.com/azure/search/search-what-is-azure-search)
+- [📖 Azure OpenAI Service](https://learn.microsoft.com/azure/cognitive-services/openai/overview)
+- [📖 Comparing Azure OpenAI and OpenAI](https://learn.microsoft.com/azure/cognitive-services/openai/overview#comparing-azure-openai-and-openai/)
+- [📖 Access Control in Generative AI applications with Azure Cognitive Search](https://techcommunity.microsoft.com/t5/ai-azure-ai-services-blog/access-control-in-generative-ai-applications-with-azure/ba-p/3956408)
+- [📺 Quickly build and deploy OpenAI apps on Azure, infused with your own data](https://www.youtube.com/watch?v=j8i-OM5kwiY)
 
 ## Clean up
 
@@ -335,7 +339,6 @@ To clean up all the resources created by this sample:
 3. When asked if you want to permanently delete the resources, enter `y`
 
 The resource group and all the resources will be deleted.
-
 
 ### FAQ
 
@@ -349,26 +352,26 @@ That repository is designed for use by customers using Azure OpenAI studio and A
 
 The primary differences:
 
-* This repository includes multiple RAG (retrieval-augmented generation) approaches that chain the results of multiple API calls (to Azure OpenAI and ACS) together in different ways. The other repository uses only the built-in data sources option for the ChatCompletions API, which uses a RAG approach on the specified ACS index. That should work for most uses, but if you needed more flexibility, this sample may be a better option.
-* This repository is also a bit more experimental in other ways, since it's not tied to the Azure OpenAI Studio like the other repository.
+- This repository includes multiple RAG (retrieval-augmented generation) approaches that chain the results of multiple API calls (to Azure OpenAI and ACS) together in different ways. The other repository uses only the built-in data sources option for the ChatCompletions API, which uses a RAG approach on the specified ACS index. That should work for most uses, but if you needed more flexibility, this sample may be a better option.
+- This repository is also a bit more experimental in other ways, since it's not tied to the Azure OpenAI Studio like the other repository.
 
 Feature comparison:
 
-| Feature | azure-search-openai-demo | sample-app-aoai-chatGPT |
-| --- | --- | --- |
-| RAG approach | Multiple approaches | Only via ChatCompletion API data_sources |
-| Vector support | ✅ Yes | ✅ Yes |
-| Data ingestion | ✅ Yes (PDF) | ✅ Yes (PDF, TXT, MD, HTML) |
-| Persistent chat history | ❌ No (browser tab only) | ✅ Yes, in CosmosDB |
+| Feature                 | azure-search-openai-demo | sample-app-aoai-chatGPT                  |
+| ----------------------- | ------------------------ | ---------------------------------------- |
+| RAG approach            | Multiple approaches      | Only via ChatCompletion API data_sources |
+| Vector support          | ✅ Yes                   | ✅ Yes                                   |
+| Data ingestion          | ✅ Yes (PDF)             | ✅ Yes (PDF, TXT, MD, HTML)              |
+| Persistent chat history | ❌ No (browser tab only) | ✅ Yes, in CosmosDB                      |
 
 Technology comparison:
 
-| Tech | azure-search-openai-demo | sample-app-aoai-chatGPT |
-| --- | --- | --- |
-| Frontend | React | React |
-| Backend | Python (Quart) | Python (Flask) |
-| Vector DB | Azure AI Search | Azure AI Search |
-| Deployment | Azure Developer CLI (azd) | Azure Portal, az, azd |
+| Tech       | azure-search-openai-demo  | sample-app-aoai-chatGPT |
+| ---------- | ------------------------- | ----------------------- |
+| Frontend   | React                     | React                   |
+| Backend    | Python (Quart)            | Python (Flask)          |
+| Vector DB  | Azure AI Search           | Azure AI Search         |
+| Deployment | Azure Developer CLI (azd) | Azure Portal, az, azd   |
 
 </details>
 
@@ -376,6 +379,7 @@ Technology comparison:
 <summary>How do you use GPT-4 with this sample?</summary>
 
 In `infra/main.bicep`, change `chatGptModelName` to 'gpt-4' instead of 'gpt-35-turbo'. You may also need to adjust the capacity above that line depending on how much TPM your account is allowed.
+
 </details>
 
 <details><a id="azd-up-explanation"></a>
@@ -390,6 +394,7 @@ Next, it provisions the resources based on `main.bicep` and `main.parameters.jso
 Finally, it looks at `azure.yaml` to determine the Azure host (appservice, in this case) and uploads the zip to Azure App Service. The `azd up` command is now complete, but it may take another 5-10 minutes for the App Service app to be fully available and working, especially for the initial deploy.
 
 Related commands are `azd provision` for just provisioning (if infra files change) and `azd deploy` for just deploying updated app code.
+
 </details>
 
 <details><a id="appservice-logs"></a>
@@ -421,6 +426,7 @@ logging.info("System message: %s", system_message)
 ```
 
 If you're having troubles finding the logs in App Service, see this blog post on [tips for debugging App Service app deployments](http://blog.pamelafox.org/2023/06/tips-for-debugging-flask-deployments-to.html) or watch [this video about viewing App Service logs](https://www.youtube.com/watch?v=f0-aYuvws54).
+
 </details>
 
 ### Troubleshooting
@@ -449,4 +455,4 @@ so please use the support mechanisms described above, and we will do our best to
 
 ### Note
 
->Note: The PDF documents used in this demo contain information generated using a language model (Azure OpenAI Service). The information contained in these documents is only for demonstration purposes and does not reflect the opinions or beliefs of Microsoft. Microsoft makes no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability or availability with respect to the information contained in this document. All rights reserved to Microsoft.
+> Note: The PDF documents used in this demo contain information generated using a language model (Azure OpenAI Service). The information contained in these documents is only for demonstration purposes and does not reflect the opinions or beliefs of Microsoft. Microsoft makes no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability or availability with respect to the information contained in this document. All rights reserved to Microsoft.
